@@ -31,3 +31,6 @@ module "vpc" {
   subnet_cidr  = var.subnet_cidr
   az           = var.az
 }
+
+# To run with secure ssh:
+# terraform apply -var='ssh_cidr=["<YOUR_CIDR_BLOCK>"]'

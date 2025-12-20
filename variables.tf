@@ -27,6 +27,12 @@ variable "sg_name" {
   default = "default_sg"
 }
 
+variable "ssh_cidr" {
+  description = "Allowed SSH CIDR blocks"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+
 variable "ingress_rules" {
   type = list(object({
     from_port   = number
@@ -40,7 +46,7 @@ variable "ingress_rules" {
       from_port   = 22
       to_port     = 22
       protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
+      cidr_blocks = var.ssh_cidr 
       description = "SSH"
     }
   ]
