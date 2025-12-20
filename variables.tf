@@ -27,11 +27,7 @@ variable "sg_name" {
   default = "default_sg" # example security group name
 }
 
-variable "ssh_cidr" {
-  description = "Allowed SSH CIDR blocks"
-  type        = list(string)
-  default     = ["0.0.0.0/0"] # add CIDR blocks here or at apply
-}
+
 
 variable "ingress_rules" { 
   type = list(object({
@@ -46,7 +42,7 @@ variable "ingress_rules" {
       from_port   = 22
       to_port     = 22
       protocol    = "tcp"
-      cidr_blocks = var.ssh_cidr 
+      cidr_blocks = ["0.0.0.0/0"] # open to all by default; override at apply for security
       description = "SSH"
     }
   ]
