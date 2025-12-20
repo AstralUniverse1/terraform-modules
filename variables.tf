@@ -27,8 +27,6 @@ variable "sg_name" {
   default = "default_sg" # example security group name
 }
 
-
-
 variable "ingress_rules" { 
   type = list(object({
     from_port   = number
