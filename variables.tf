@@ -1,39 +1,39 @@
 variable "aws_region" {
   type    = string
-  default = "ap-northeast-1"
+  default = "ap-northeast-1" # tokyo - example region
 }
 
 variable "ami_id" {
   type    = string
-  default = "ami-0b7546e839d7ace12"
+  default = "ami-0b7546e839d7ace12" # example in tokyo region
 }
 
 variable "instance_type" {
   type    = string
-  default = "t3.micro"
+  default = "t3.micro" # example instance type
 }
 
 variable "iam_user_name" {
   type    = string
-  default = "example-user"
+  default = "example-user" # example IAM user name
 }
 variable "iam_user_policy_arns" {
   type    = list(string)
-  default = []
+  default = [] # add policy ARNs here or at apply
 }
 
 variable "sg_name" {
   type    = string
-  default = "default_sg"
+  default = "default_sg" # example security group name
 }
 
 variable "ssh_cidr" {
   description = "Allowed SSH CIDR blocks"
   type        = list(string)
-  default     = ["0.0.0.0/0"]
+  default     = ["0.0.0.0/0"] # add CIDR blocks here or at apply
 }
 
-variable "ingress_rules" {
+variable "ingress_rules" { 
   type = list(object({
     from_port   = number
     to_port     = number
@@ -65,7 +65,7 @@ variable "egress_rules" {
 
 variable "key_name" {
   type    = string
-  default = null
+  default = null # add keypair here or in apply
 }
 
 variable "vpc_cidr" {
@@ -78,5 +78,5 @@ variable "subnet_cidr" {
 }
 variable "az" {
   type    = string
-  default = "ap-northeast-1a"
+  default = "ap-northeast-1a" # example availability zone in tokyo
 }
